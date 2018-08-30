@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+	<title>Prime Test</title>
+
+</h:head>
+
+<h:body>
+
+<h:form>
+    <p:growl id="growl" life="2000" />
+ 
+    <p:commandLink id="ajax" update="growl" actionListener="#{buttonView.buttonAction}">
+        <h:outputText value="Ajax Submit" />
+    </p:commandLink>
+ 
+   
+</h:form>
+
+</h:body>
+
+
+</html>
