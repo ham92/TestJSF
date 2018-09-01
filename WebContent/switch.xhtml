@@ -5,7 +5,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 
-<body dir="rtl">
+<body >
 	<div
 		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">My
 		Facelet Application</div>
@@ -50,8 +50,26 @@
 				<f:selectItem itemValue="Arabic" itemLabel="Arabic" />
 				<f:selectItem itemValue="France" itemLabel="Frensh" />
 			</h:selectOneMenu>
+		</h:form>
 
 
+		<h:form>
+			Try Validation <h:inputText label="email" id="email" value="#{email}" validator="#{resourseController.validateUserEmail}"  />
+		
+		<h:message for="email"></h:message>
+		<br></br>
+		
+		 <h:commandButton  value="Submit"  action="ValidationOutput.xhtml"    />
+		 
+		</h:form>
+
+
+	<h:form>
+		
+		<br>Try faces-config navigation</br>
+		
+		 <h:commandButton  value="Submit"  action="touserpage"    />
+		 
 		</h:form>
 
 

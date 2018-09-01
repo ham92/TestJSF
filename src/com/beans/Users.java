@@ -7,17 +7,23 @@ public class Users {
 
 	private String firstName;
 	private String lastName;
-
+	private String email;
+	
 	public Users() {
 	}
 
 	
 	
-	public Users(String firstName, String lastName) {
+
+
+	public Users(String firstName, String lastName, String email) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.email = email;
 	}
+
+
 
 
 
@@ -35,6 +41,18 @@ public class Users {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }
