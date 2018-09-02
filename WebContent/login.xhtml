@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Login Application</title>
+</h:head>
+<h:body>
+	<h3>Login Application</h3>
+	<b>#{userLogin.message}</b>
+	<br />
+	<br />
+
+	<h:form id="loginForm">
+		<h:outputLabel value="User Name:" />
+		<h:inputText value="#{userLogin.username}" id="username" />
+		<br />
+		<h:outputLabel value="User Name:" />
+		<h:inputText value="#{userLogin.password}" id="password" />
+		<br />
+		<h:commandButton value="Submit" action="#{userLogin.login}" />
+	</h:form>
+</h:body>
+
+</html>
+

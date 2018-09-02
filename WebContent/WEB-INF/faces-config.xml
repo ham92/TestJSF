@@ -12,24 +12,22 @@
 			<supported-locale>fr</supported-locale>
 		</locale-config>
 
-
 		<resource-bundle>
 			<base-name>com.resources.local</base-name>
 			<var>msg</var>
 		</resource-bundle>
 
 
-		<navigation-rule>
-			<from-view-id>switch.xhtml</from-view-id>
-			<navigation-case>
-				<from-outcome>touserpage</from-outcome>
-				<to-view-id>users.xhtml</to-view-id>
-			</navigation-case>
-		</navigation-rule>
-
-
-
-
 	</application>
+	<navigation-rule>
+		<from-view-id>switch.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>touserpage</from-outcome>
+			<to-view-id>users.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	
+
 
 </faces-config>

@@ -5,74 +5,106 @@
 	xmlns:p="http://primefaces.org/ui">
 
 
-<body >
+<body lang="language_select">
 	<div
 		style="width: 100%; font-size: 36px; line-height: 48px; background-color: navy; color: white">My
 		Facelet Application</div>
 	<br />
 
-		<h:head>
-			<h:outputStylesheet library="css" name="jsfcrud.css" />
-			<h:outputScript library="js" name="jsfcrud.js" />
-		</h:head>
-		<h:form>
-
-			<p:messages />
-			<p:growl id="growl" life="2000" />
-
-			<p:commandButton value="Ajax Submit" id="ajax" update="growl"
-				actionListener="#{buttonView.buttonAction}"
-				styleClass="ui-priority-primary" />
-
-			<p:commandButton value="Non-Ajax Submit" id="nonAjax"
-				actionListener="#{buttonView.buttonAction}" ajax="false" />
-
-			<p:commandButton value="With Icon" id="withIcon"
-				actionListener="#{buttonView.buttonAction}" update="growl"
-				icon="ui-icon-disk" />
-
-			<p:commandButton actionListener="#{buttonView.buttonAction}"
-				id="iconOnly" update="growl" icon="ui-icon-disk" title="Icon Only" />
-
-			<p:commandButton value="Disabled" id="disabled" disabled="true" />
-	
-	
-	
- 		#{msg.name}
- 		<h1>
-				<h:commandButton value="change language to Arabic"
-					action="#{resourseController.changeLocale('fr')}" />
-
-				<br> </br> #{msg.name}
-			</h1>
-			<h:selectOneMenu>
-				<f:selectItem itemValue="English" itemLabel="English" />
-				<f:selectItem itemValue="Arabic" itemLabel="Arabic" />
-				<f:selectItem itemValue="France" itemLabel="Frensh" />
-			</h:selectOneMenu>
-		</h:form>
-
-
-		<h:form>
-			Try Validation <h:inputText label="email" id="email" value="#{email}" validator="#{resourseController.validateUserEmail}"  />
-		
-		<h:message for="email"></h:message>
-		<br></br>
-		
-		 <h:commandButton  value="Submit"  action="ValidationOutput.xhtml"    />
-		 
-		</h:form>
-
+	<h:head>
+		<h:outputStylesheet library="css" name="jsfcrud.css" />
+		<h:outputScript library="js" name="jsfcrud.js" />
+	</h:head>
 
 	<h:form>
-		
+		<div>
+			<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+
+				<h:outputText value="Language:" />
+
+				<p:selectOneButton id="lang" value="#{resourseController.lang}">
+
+					<f:selectItem itemLabel="English" id="en" itemValue="en"
+						action="#{resourseController.changeLocale}">
+					</f:selectItem>
+
+					<f:selectItem itemLabel="Arabic" id="ar" itemValue="ar"
+						action="#{resourseController.changeLocale}">
+					</f:selectItem>
+
+					<f:selectItem itemLabel="France" id="fr" itemValue="fr"
+						action="#{resourseController.changeLocale}">
+					</f:selectItem>
+
+				</p:selectOneButton>
+
+
+				<p:commandButton value="Submit" update="@all" icon="ui-icon-check"
+					action="#{resourseController.changeLocale}" />
+				<p:spacer />
+
+				<h:outputText value="Selected:" />
+				<h:outputText id="display" value="#{msg.name}"
+					style="font-weight: bold" />
+			</h:panelGrid>
+
+		</div>
+
+
+
+
+		<p:messages />
+		<p:growl id="growl" life="2000" />
+
+		<p:commandButton value="Ajax Submit" id="ajax" update="growl"
+			actionListener="#{buttonView.buttonAction}"
+			styleClass="ui-priority-primary" />
+
+		<p:commandButton value="Non-Ajax Submit" id="nonAjax"
+			actionListener="#{buttonView.buttonAction}" ajax="false" />
+
+		<p:commandButton value="With Icon" id="withIcon"
+			actionListener="#{buttonView.buttonAction}" update="growl"
+			icon="ui-icon-disk" />
+
+		<p:commandButton actionListener="#{buttonView.buttonAction}"
+			id="iconOnly" update="growl" icon="ui-icon-disk" title="Icon Only" />
+
+		<p:commandButton value="Disabled" id="disabled" disabled="true" />
+	
+
+	
+ 		#{msg.name}
+ 		
+ 		<h1>
+			<p:commandButton value="change language to Arabic"
+				action="#{resourseController.changeLocale}" />
+
+			<br> </br> #{msg.name}
+		</h1>
+
+	
+
+
+	
+			Try Validation <h:inputText label="email" id="email" value="#{email}"
+			validator="#{resourseController.validateUserEmail}" />
+
+		<h:message for="email"></h:message>
+		<br></br>
+
+		<h:commandButton value="Submit" action="ValidationOutput.xhtml" />
+
+
+
+
+
+
 		<br>Try faces-config navigation</br>
-		
-		 <h:commandButton  value="Submit"  action="touserpage"    />
-		 
-		</h:form>
 
+		<h:commandButton value="Submit" action="touserpage" />
 
+	</h:form>
 
 </body>
 </html>
